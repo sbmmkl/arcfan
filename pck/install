@@ -1,0 +1,23 @@
+#! /bin/sh
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo "=> #### Welcome to thearc.in ####\n"
+echo "=> #### installing... ####\n"
+
+sudo cp llp.py /usr/local/bin/
+
+sudo chmod +x /usr/local/bin/llp.py
+
+echo "=> Starting Service...\n"
+
+sudo cp llp.sh /etc/init.d/
+
+sudo chmod +x /etc/init.d/llp.sh
+
+sudo update-rc.d llp.sh defaults
+sudo /etc/init.d/llp.sh start
+
+echo "Successfully installed..."
