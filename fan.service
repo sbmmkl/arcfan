@@ -1,0 +1,15 @@
+
+[Unit]
+Description=My service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u llp.py
+WorkingDirectory=/usr/local/bin/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
